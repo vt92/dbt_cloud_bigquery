@@ -1,0 +1,31 @@
+sources:
+    - name: bigquery_source
+      description: source is on bigquery
+      schema: staging
+      tables:
+        - name: orders
+
+models:
+    - name: transformed_model
+      description: "A starter dbt model"
+      columns:
+          - name: order_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+      config:
+        materialized: table
+        alias: transformed_orders_table
+
+    - name: transformed_second_tab
+      description: "A starter dbt model"
+      columns:
+          - name: order_id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+      config:
+        materialized: table
+        alias: transformed_sec_orders
